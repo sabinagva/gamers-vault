@@ -9,6 +9,8 @@ import { takeLatest, put } from 'redux-saga/effects'
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import store from './redux/store';
+import "nes.css/css/nes.min.css";
+
 
 const sagaMiddleware = createSagaMiddleware();
 

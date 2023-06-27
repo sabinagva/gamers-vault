@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 require('dotenv').config();
+const qs = require('qs');
+
 
 //GET for search view from api
 router.get('/:id', async (req, res) => {
@@ -12,7 +14,7 @@ router.get('/:id', async (req, res) => {
     const gamesResponse = await axios.post(
       'https://api.igdb.com/v4/games',
       {
-        fields: '*',
+        //fields: '*',
         search: gameName,
         limit: 100,
       },

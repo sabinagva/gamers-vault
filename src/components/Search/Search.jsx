@@ -11,8 +11,9 @@ function Search(){
     }
 return (
    
-    <div>
-        <form onSubmit={searchGames}>
+    <div className="nes-container with-title">
+        <p></p>
+        <form  onSubmit={searchGames}>
             <input type="text" 
             placeholder="search for games"
             value={search}
