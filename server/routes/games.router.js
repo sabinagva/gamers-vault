@@ -5,7 +5,7 @@ require('dotenv').config();
 
 //GET for search view from api
 router.get('/:id', async (req, res) => {
-  const gameId = req.params.id;
+  const gameName = req.params.id;
 
   try {
     //requesting game data from games endpoint
@@ -13,7 +13,7 @@ router.get('/:id', async (req, res) => {
       'https://api.igdb.com/v4/games',
       {
         fields: '*',
-        search: gameId,
+        search: gameName,
         limit: 100,
       },
       {
@@ -25,14 +25,14 @@ router.get('/:id', async (req, res) => {
       }
     );
 //extracting game data from the response
-      console.log(gamesResponse.data.id)
-    const games = gamesResponse.data.id;
+      console.log('game.response is ' ,gamesResponse.data)
+    const games = gamesResponse.data;
 //requesting data in covers endpoint from the api
     const coversResponse = await axios.post(
       'https://api.igdb.com/v4/covers',
       {
         fields: '*',
-        where: { game: gameId },
+        where: { game: gameName },
       },
       {
         headers: {
@@ -55,7 +55,7 @@ router.get('/:id', async (req, res) => {
     console.error('Error getting games and images on server', error);
 
   }
-});
+}); 
 
 //POSTing to wishlist
 router.post('/', (req, res) => {
@@ -77,6 +77,63 @@ router.post('/', (req, res) => {
 
 //DELETE
 
-module.exports = router;
+ module.exports = router;
 
 
+// //GET for search view from api
+// router.get('/:id', async (req, res) => {
+//   const gameName = req.params.id;
+//   console.log('req.params.id is ', req.params.id);
+//   try {
+//     //requesting game data from games endpoint
+//     const gamesResponse = await axios.post(
+//       'https://api.igdb.com/v4/games','fields genre',
+      
+//       {
+//         data: {
+//           fields: '*',
+//           search: gameName,
+//           limit: 1,
+//         }
+
+//       },
+//       {
+//         headers: {
+//           'Accept': 'application/json',
+//           'Client-ID': '67cmtfjjiza9jdagz5nezdjsp7q2jb',
+//           'Authorization': 'Bearer w142s80hf0xtr3kmgrmebjz9zq425p',
+//         },
+//       }
+//     );
+// //extracting game data from the response
+//       console.log('gameResponse.data.id is',gamesResponse.config)
+//     const games = gamesResponse.data;
+// //requesting data in covers endpoint from the api
+//     const coversResponse = await axios.post(
+//       'https://api.igdb.com/v4/covers',
+//       {
+//         data: '*',
+//         where: { game: gameName },
+//       },
+//       {
+//         headers: {
+//           'Accept': 'application/json',
+//           'Client-ID': '67cmtfjjiza9jdagz5nezdjsp7q2jb',
+//           'Authorization': 'Bearer w142s80hf0xtr3kmgrmebjz9zq425p',
+//         },
+//       }
+//     );
+// //extracting covers data from covers response
+//     const covers = coversResponse.data;
+// //combining games and covers endpoint
+//     const combinedData = {
+//       games: games,
+//       covers: covers,
+//     };
+// //sending combined data as response
+//     res.send(combinedData);
+//   } catch (error) {
+//     console.error('Error getting games and images on server', error);
+
+//   }
+// });

@@ -15,7 +15,7 @@ return (
         <form onSubmit={searchGames}>
             <input type="text" 
             placeholder="search for games"
-            //value={search}
+            value={search}
             onChange={(event)=> setSearch(event.target.value)}  />
             <input type="submit" value="Search" />
            

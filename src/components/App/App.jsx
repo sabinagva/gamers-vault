@@ -20,6 +20,10 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import Search from '../Search/Search';
+import Catalog from '../Catalog/Catalog'
+import Wishlist from '../Wishlist/Wishlist'
+
+
 
 import './App.css';
 
@@ -112,6 +116,14 @@ function App() {
           </Route>
           <Route exact path ="/search">
             <Search/>
+          </Route>
+
+          <Route exact path ="/wishlist">
+            <Wishlist/>
+          </Route>
+
+          <Route exact path ="/catalog">
+            <Catalog/>
           </Route>
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
