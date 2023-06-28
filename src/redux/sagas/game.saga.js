@@ -1,8 +1,6 @@
  import { put, takeLatest } from 'redux-saga/effects';
  import axios from 'axios';
 
-import { func } from "prop-types";
-
 //getting (posting) the games to show up on my search view 
 function* fetchGame(action) {
     try {

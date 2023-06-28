@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import SearchResult from "../SearchResult/SearchResult";
 
 function Search(){
     const dispatch = useDispatch();
@@ -11,17 +12,19 @@ function Search(){
     }
 return (
    
-    <div className="nes-container with-title">
+    <div>
         <p></p>
-        <form  onSubmit={searchGames}>
-            <input type="text" 
+        <form className="nes-container with-title" onSubmit={searchGames}>
+        <span class="title">Search for Game</span>
+            <input className="nes-container with-title" type="text" 
             placeholder="search for games"
             value={search}
             onChange={(event)=> setSearch(event.target.value)}  />
-            <input type="submit" value="Search" />
+            <input type="submit"  class="nes-btn is-primary" value="Search" />
+            
            
         </form>
-       
+        <SearchResult/>       
     </div>
 )
 }

@@ -116,6 +116,7 @@ function App() {
           </Route>
           <Route exact path ="/search">
             <Search/>
+            
           </Route>
 
           <Route exact path ="/wishlist">

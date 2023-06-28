@@ -12,6 +12,7 @@ import store from './redux/store';
 import "nes.css/css/nes.min.css";
 
 
+
 const sagaMiddleware = createSagaMiddleware();
 
 //watcher saga holds and listens to sagas
