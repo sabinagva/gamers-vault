@@ -39,4 +39,16 @@ router.post('/', (req, res) => {
 });
 
 //DELETE
+//req.params.id is id to delete
+router.delete('/:id', (req,res) => {
+  const sqlQuery = `DELETE FROM "wishlist" where "id" = $1 `
+  pool.query(sqlQuery, [req.params.id])
+  .then(result => {
+    res.sendStatus(201)
+  })
+  .catch(error => {
+    console.log('error deleting wishlist game', error)
+    res.sendStatus(418)
+  })
+})
 module.exports = router;

@@ -9,6 +9,13 @@ const wishlistReducer = useSelector((store) => store.wishlistReducer);
 useEffect(() => {
     dispatch({ type: "GET_WISHLIST"})
 }, []);
+
+const deleteGame = (wish) => {
+    dispatch({type: 'DELETE_WISH', payload: wish.id})
+
+}
+
+
 return (
 <div>
 <h2> Wishlist Table</h2>
@@ -16,9 +23,12 @@ return (
         <div key={i}>
         <img src={wish.image_url} />
         {wish.game_name}
+    <button onClick={() => deleteGame(wish)}
+    type="button" class="nes-btn is-error">Delete
+    </button>
+
         </div> 
     ))}
-    <p>hi</p>
 </div>
 );
 }
