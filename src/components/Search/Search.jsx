@@ -5,6 +5,7 @@ import SearchResult from "../SearchResult/SearchResult";
 function Search(){
     const dispatch = useDispatch();
     let [search, setSearch] = useState("")
+    
     const searchGames = (event) => {
         event.preventDefault();
         dispatch({type: "GET_GAMES", payload: search})
