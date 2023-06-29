@@ -4,7 +4,7 @@ const axios = require('axios');
 require('dotenv').config();
 const pool = require ('../modules/pool')
 
-//get all the played games from database(catalog reducer) 
+//get all the played games from database 
 //to catalog page
 
 router.get('/', (req,res) => {
@@ -24,9 +24,9 @@ router.get('/', (req,res) => {
 router.post('/', (req,res) => {
     const newPlayedGame = req.body
     console.log('newPlayedGame is', newPlayedGame)
-    const sqlQuery = `INSERT INTO "catalog" ("played_game","image_url","description","rating")
-                      VALUES($1,$2,$3,$4)`
-    pool.query(sqlQuery,[newPlayedGame.name, newPlayedGame.cover.url])
+    const sqlQuery = `INSERT INTO "catalog" ("played_game_name","image_url","description","rating","game_id","user_id")
+                      VALUES($1,$2,$3,$4,$5,$6)`
+    pool.query(sqlQuery,[newPlayedGame.name, newPlayedGame.cover.url, newPlayedGame.description, newPlayedGame.rating,newPlayedGame.id,req.user.id])
     .then(() => {
         res.sendStatus(200);
     })

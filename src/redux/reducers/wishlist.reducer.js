@@ -1,4 +1,4 @@
-const wishlistReducer = (state = {}, action) => {
+const wishlistReducer = (state = [], action) => {
     switch(action.type) {
       case 'SET_WISHLIST':
         return action.payload;

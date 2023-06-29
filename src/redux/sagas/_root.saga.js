@@ -5,6 +5,8 @@ import userSaga from './user.saga';
 import gameSaga from './game.saga';
 import wishlistSaga from './wishlist.saga';
 import postWishlistSaga from './wishlistPost.saga';
+import catalogSaga from './catalog.saga';
+import postCatalogSaga from './catalogPost.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -20,6 +22,8 @@ export default function* rootSaga() {
     userSaga(),
     gameSaga(),
     wishlistSaga(),
-    postWishlistSaga()
+    postWishlistSaga(),
+    catalogSaga(),
+    postCatalogSaga()
   ]);
 }

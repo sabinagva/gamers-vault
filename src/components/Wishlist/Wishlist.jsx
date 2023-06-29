@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import WishlistListItem from "../WishlistItem/WishlistItem"
+
 
 function WishlistList() {
     const dispatch = useDispatch();
@@ -13,9 +13,10 @@ return (
 <div>
 <h2> Wishlist Table</h2>
     {wishlistReducer.map((wish,i) => (      
-        <p>
+        <div key={i}>
+        <img src={wish.image_url} />
         {wish.game_name}
-        </p> 
+        </div> 
     ))}
     <p>hi</p>
 </div>

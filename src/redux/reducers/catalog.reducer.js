@@ -1,4 +1,4 @@
-const catalogReducer = (state = {}, action) => {
+const catalogReducer = (state = [], action) => {
     switch(action.type) {
       case 'SET_CATALOG':
         return action.payload;

@@ -25,10 +25,10 @@ router.get('/', (req,res) => {
 router.post('/', (req, res) => {
   const newGame = req.body
   console.log('newGame is ', newGame)
-  const sqlQuery = `INSERT INTO "wishlist" ("game_name", "game_id")
-                    VALUES ($1,$2)`
+  const sqlQuery = `INSERT INTO "wishlist" ("game_name", "game_id", "image_url","user_id")
+                    VALUES ($1,$2,$3,$4)`
                     //this should match how api data is sent 
-  pool.query(sqlQuery,[newGame.name, newGame.id])
+  pool.query(sqlQuery,[newGame.name, newGame.id, newGame.cover.url, req.user.id])
   .then(() => {
     res.sendStatus(200);
   })
