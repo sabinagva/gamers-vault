@@ -4,6 +4,10 @@ import './SearchResult.css'
 const SearchResult = () => {
     const gameListReducer = useSelector(store => store.gameListReducer)
     const dispatch =useDispatch();
+
+    const addToWishlist = (game) =>{
+dispatch({type: 'ADD_WISHLIST', payload: game})
+    }
 return (
     <div>
       {gameListReducer.length !== 0 ? (
@@ -13,7 +17,9 @@ return (
               {game.cover && game.cover.url && <img src={game.cover.url} alt="Cover" />}
               <p>{game.name}</p>
               <div className='button-container'>
-                 <button type="button" class="nes-btn is-primary" >Add to Wishlist</button>
+                 <button 
+                 onClick={() => addToWishlist(game)}
+                 type="button" class="nes-btn is-primary" >Add to Wishlist</button>
                  <button type="button" class="nes-btn is-warning">Add to Catalog</button>
               </div>
 

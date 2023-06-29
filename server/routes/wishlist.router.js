@@ -2,23 +2,33 @@ const express = require('express');
 const router = express.Router();
 const axios = require('axios');
 require('dotenv').config();
+const pool = require ('../modules/pool')
 
 
 //get all the games to wishlist 
-router.get('/wishlist', (req,res) => {
+router.get('/', (req,res) => {
     console.log('in wishlist get');
-    const sqlQuery = `SELECT * FROM "wishlist`
+    const sqlQuery = `SELECT * FROM "wishlist";`
+    pool.query(sqlQuery)
+    .then((result) =>{
+        console.log('wishlist get is a success', result);
+        res.send(result.rows)
+    }).catch((error) => {
+        console.log('error with wishlist get', error);
+        res.sendStatus(500)
+    })
     
 
 })
 
-//POSTing to wishlist
+//POSTing to wishlist table in database
 router.post('/', (req, res) => {
   const newGame = req.body
   console.log('newGame is ', newGame)
   const sqlQuery = `INSERT INTO "wishlist" ("game_name", "game_id")
                     VALUES ($1,$2)`
-  pool.query(sqlQuery,[newGame.game_name, newGame.game_id])
+                    //this should match how api data is sent 
+  pool.query(sqlQuery,[newGame.name, newGame.id])
   .then(() => {
     res.sendStatus(200);
   })
@@ -28,6 +38,5 @@ router.post('/', (req, res) => {
   })
 });
 
-//PUT 
-
 //DELETE
+module.exports = router;
