@@ -6,7 +6,10 @@ const SearchResult = () => {
     const dispatch =useDispatch();
 
     const addToWishlist = (game) =>{
-dispatch({type: 'ADD_WISHLIST', payload: game})
+      dispatch({type: 'ADD_WISHLIST', payload: game})
+    }
+    const addToCatalog = (game) => {
+      dispatch({type:'ADD_CATALOG', payload: game})
     }
 return (
     <div>
@@ -20,7 +23,9 @@ return (
                  <button 
                  onClick={() => addToWishlist(game)}
                  type="button" class="nes-btn is-primary" >Add to Wishlist</button>
-                 <button type="button" class="nes-btn is-warning">Add to Catalog</button>
+                 <button 
+                 onClick={() => addToCatalog(game)}
+                 type="button" class="nes-btn is-warning">Add to Catalog</button>
               </div>
 
               {/* <button onClick={() => {
