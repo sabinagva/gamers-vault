@@ -12,29 +12,29 @@ function CatalogList() {
   return (
     <div>
       <h2>PLAYED GAMES</h2>
-      {catalogReducer?.map((catalog, i) => (
-        <CatalogItem key={i} catalog={catalog} />
+      {catalogReducer?.map((catalog) => (
+        <CatalogItem key={catalog.id} catalog={catalog} />
       ))}
     </div>
   );
 }
 
 function CatalogItem({ catalog }) {
+  console.log('catalog is', catalog)
+  console.log('catalog.id is', catalog.id)
   const [showDialog, setShowDialog] = useState(false);
   const [description, setDescription] = useState("")
   const [rating, setRating] = useState("")
+  const dispatch = useDispatch();
 
-const addDialog = (event) => {
-  axios.post('/catalog', {description:description, rating:rating})
-  .then( response => {
-    event.preventDefault();
-    setDescription("");
-    setRating("")
-  })
-  .catch(errr => {
-    console.log('error posting into database', error)
-  })
-}
+
+  const addDialog = (event) => {
+    dispatch({type: 'UPDATE_CATALOG' , payload : {description: description , user_rating: rating, id: catalog.id}})
+       event.preventDefault();
+       setDescription("");
+       setRating("")
+    
+   }
 
   const handleEditGame = () => {
     setShowDialog(true);
@@ -54,9 +54,9 @@ const addDialog = (event) => {
         </button>
         {showDialog && (
           <dialog className="nes-dialog" open>
-            <form method="dialog">
+            <form method="dialog" onSubmit={addDialog}>
               <p>Description:</p>
-              <form onSubmit={addDialog}>
+           
               <input 
                 className="nes-container" 
                 type="text"
@@ -75,10 +75,10 @@ const addDialog = (event) => {
                 onChange={(event) => setRating(event.target.value)}
                 >
               </input>
-              </form>
+            
               <menu className="dialog-menu">
                 <button className="nes-btn">Cancel</button>
-                <button className="nes-btn is-primary">Confirm</button>
+                <button className="nes-btn is-primary" type = "submit" >Confirm</button>
               </menu>
             </form>
           </dialog>

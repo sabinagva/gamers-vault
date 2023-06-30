@@ -8,6 +8,7 @@ import postWishlistSaga from './wishlistPost.saga';
 import catalogSaga from './catalog.saga';
 import postCatalogSaga from './catalogPost.saga';
 import deleteWishSaga from './wishlistDelete.saga';
+import catalogUpdateSaga from './catalogUpdate.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -26,6 +27,7 @@ export default function* rootSaga() {
     postWishlistSaga(),
     catalogSaga(),
     postCatalogSaga(),
-    deleteWishSaga()
+    deleteWishSaga(),
+    catalogUpdateSaga()
   ]);
 }
