@@ -36,5 +36,20 @@ router.post('/', (req,res) => {
 })
 
 //PUT
+//updating 
+router.put(':id', (req, res) => {
+    const description = req.body
+    console.log('req.body is', req.body)
+    console.log('req.params.id is', req.params.id);
+    const sqlQuery = `UPDATE "catalog" SET "description" = ${description}, "rating" = ${req.body} WHERE "id" = $1 `
+    pool.query(sqlQuery, [req.params.id])
+    .then(result => {
+        res.sendStatus(200)
+        console.log('Finished updating')
+    })
+    .catch(error => {
+        console.log('error in updating rating and description', error)
+    })
+})
 
 module.exports = router

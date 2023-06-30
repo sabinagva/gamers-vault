@@ -24,10 +24,16 @@ function CatalogItem({ catalog }) {
   const [description, setDescription] = useState("")
   const [rating, setRating] = useState("")
 
-const handleDialog = (event) => {
+const addDialog = (event) => {
+  axios.post('/catalog', {description:description, rating:rating})
+  .then( response => {
     event.preventDefault();
     setDescription("");
     setRating("")
+  })
+  .catch(errr => {
+    console.log('error posting into database', error)
+  })
 }
 
   const handleEditGame = () => {
@@ -50,7 +56,7 @@ const handleDialog = (event) => {
           <dialog className="nes-dialog" open>
             <form method="dialog">
               <p>Description:</p>
-              <form onSubmit={handleDialog}>
+              <form onSubmit={addDialog}>
               <input 
                 className="nes-container" 
                 type="text"
