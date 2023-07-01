@@ -28,13 +28,17 @@ function CatalogItem({ catalog }) {
   const dispatch = useDispatch();
 
 
-  const addDialog = (event) => {
+  const handleConfirm = (event) => {
     dispatch({type: 'UPDATE_CATALOG' , payload : {description: description , user_rating: rating, id: catalog.id}})
        event.preventDefault();
        setDescription("");
        setRating("")
+       setShowDialog(false);
     
    }
+   const handleCancel = () => {
+    setShowDialog(false);
+  };
 
   const handleEditGame = () => {
     setShowDialog(true);
@@ -54,7 +58,7 @@ function CatalogItem({ catalog }) {
         </button>
         {showDialog && (
           <dialog className="nes-dialog" open>
-            <form method="dialog" onSubmit={addDialog}>
+            <form method="dialog" onSubmit={handleConfirm}>
               <p>Description:</p>
            
               <input 
@@ -77,7 +81,7 @@ function CatalogItem({ catalog }) {
               </input>
             
               <menu className="dialog-menu">
-                <button className="nes-btn">Cancel</button>
+                <button className="nes-btn" onClick={handleCancel}>Cancel</button>
                 <button className="nes-btn is-primary" type = "submit" >Confirm</button>
               </menu>
             </form>

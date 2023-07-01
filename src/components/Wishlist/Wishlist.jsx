@@ -17,19 +17,37 @@ const deleteGame = (wish) => {
 
 
 return (
-<div>
-<h2> Wishlist Table</h2>
-    {wishlistReducer.map((wish,i) => (      
-        <div key={i}>
-        <img src={wish.image_url} />
-        {wish.game_name}
-    <button onClick={() => deleteGame(wish)}
-    type="button" class="nes-btn is-error">Delete
-    </button>
-
-        </div> 
-    ))}
+    <>
+     <h2> Wishlist Table</h2>
+    <div class="nes-table-responsive">
+  <table class="nes-table is-bordered is-centered">
+    <thead>
+      <tr>
+        <th>Picture</th>
+        <th>Game</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    {wishlistReducer.map((wish,i) => (  
+      <tr key={i}>
+        <td> <img src={wish.image_url}/></td>
+        <td>{wish.game_name}</td>
+        <td>
+        <button
+         onClick={() => deleteGame(wish)}
+         type="button"
+         class="nes-btn is-error">Delete
+        </button>
+        </td>
+     
+      </tr>
+   ))}
+    </tbody>
+  </table>
 </div>
+    </>
 );
+
 }
 export default WishlistList;

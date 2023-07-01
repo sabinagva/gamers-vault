@@ -11,36 +11,63 @@ const SearchResult = () => {
     const addToCatalog = (game) => {
       dispatch({type:'ADD_CATALOG', payload: game})
     }
-return (
-    <div>
-      {gameListReducer.length !== 0 ? (
-        <div> 
-          {gameListReducer.map((game, i) => (
-            <div key={i}>
-              {game.cover && game.cover.url && <img src={game.cover.url} alt="Cover" />}
-              <p>{game.name}</p>
-              <div className='button-container'>
-                 <button 
-                 onClick={() => addToWishlist(game)}
-                 type="button" class="nes-btn is-primary" >Add to Wishlist</button>
-                 <button 
-                 onClick={() => addToCatalog(game)}
-                 type="button" class="nes-btn is-warning">Add to Catalog</button>
-              </div>
 
-              {/* <button onClick={() => {
-                dispatch({ type: "ADD_CATALOG_GAME", payload: game.cover.url, gameName: game.name });
-                dispatch({ type: "ADD_WISHLIST_GAME", payload: game.cover.url, gameName: game.name });
-              }}>
-                Add to Wishlist
-              </button> */}
-            </div>
-          ))}
-        </div>
-      ) : (
-        <div></div>
-      )}
+return (
+  <>
+  <br /><br />
+  <div>
+    <div className="nes-table-responsive">
+      <table className="nes-table is-bordered is-centered">
+        <thead>
+          <tr>
+            <th>Picture</th>
+            <th>Game</th>
+            <th>Add to Wishlist</th>
+            <th>Add to Catalog</th>
+          </tr>
+        </thead>
+        <tbody>
+          {gameListReducer.length !== 0 ? (
+            gameListReducer.map((game, i) => (
+              <tr key={i}>
+                <td>
+                  {game.cover && game.cover.url && (
+                    <img src={game.cover.url} alt="Cover" />
+                  )}
+                </td>
+                <td>{game.name}</td>
+                <td className="button-container">
+                  <button
+                    onClick={() => addToWishlist(game)}
+                    type="button"
+                    className="nes-btn is-primary"
+                  >
+                    Add to Wishlist
+                  </button>
+                </td>
+                <td className="button-container">
+                  <button
+                    onClick={() => addToCatalog(game)}
+                    type="button"
+                    className="nes-btn is-primary"
+                  >
+                    Add to Catalog
+                  </button>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="4">No games available</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
     </div>
-  );
+  </div>
+  </>
+);
+
+
       }
 export default SearchResult
