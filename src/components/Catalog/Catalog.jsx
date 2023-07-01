@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import './Catalog.css'
 
 function CatalogList() {
   const dispatch = useDispatch();
@@ -26,6 +27,8 @@ function CatalogItem({ catalog }) {
   const [description, setDescription] = useState("")
   const [rating, setRating] = useState("")
   const dispatch = useDispatch();
+  const [clicked, setClicked] = useState(false)
+
 
 
   const handleConfirm = (event) => {
@@ -45,9 +48,29 @@ function CatalogItem({ catalog }) {
   };
 
   return (
-    <div>
-      <img src={catalog.image_url} alt="Game Cover" />
-      {catalog.played_game_name}
+    <div >
+      <div  onClick={() => setClicked(!clicked)}>
+        {clicked ? (
+          <>
+      <div className="conditionalContainer">
+           <p><b>description: </b>{catalog.description}</p>
+        <p> <b>rating:</b> {catalog.rating}</p>
+        </div>
+        
+        </> )  :  
+        (
+        <>
+       
+        <img src={catalog.image_url} alt="Game Cover" style={{ width: '300px', height: 'auto' }} />
+        <br /><br />
+         <p className="conditionalContainer name">{catalog.played_game_name}</p> 
+        
+        </>)}
+      </div>
+      
+      <div>
+     
+      </div>
       <section>
         <button
           type="button"

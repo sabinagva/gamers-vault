@@ -1,0 +1,9 @@
+.conditionalContainer {
+    width: 200px;
+    text-align: center;
+    
+}
+
+.catalogContainer {
+    display: flex;
+}
