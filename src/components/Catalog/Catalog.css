@@ -6,4 +6,11 @@
 
 .catalogContainer {
     display: flex;
+    float: left;
 }
+input [type = "radio"] {
+    display: none;
+}
+.filled-star {
+    color: yellow; /* Set the desired color for the filled star */
+  }

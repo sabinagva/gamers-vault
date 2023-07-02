@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import './Catalog.css'
+
 
 function CatalogList() {
   const dispatch = useDispatch();
@@ -28,6 +28,9 @@ function CatalogItem({ catalog }) {
   const [rating, setRating] = useState("")
   const dispatch = useDispatch();
   const [clicked, setClicked] = useState(false)
+  const [hover, setHover] = useState(null)
+
+  
 
 
 
@@ -49,22 +52,22 @@ function CatalogItem({ catalog }) {
 
   return (
     <div >
-      <div  onClick={() => setClicked(!clicked)}>
+      <div className="conditionalContainer" onClick={() => setClicked(!clicked)}>
         {clicked ? (
           <>
-      <div className="conditionalContainer">
+     
            <p><b>description: </b>{catalog.description}</p>
         <p> <b>rating:</b> {catalog.rating}</p>
-        </div>
+       
         
         </> )  :  
         (
         <>
-       
+     
         <img src={catalog.image_url} alt="Game Cover" style={{ width: '300px', height: 'auto' }} />
         <br /><br />
          <p className="conditionalContainer name">{catalog.played_game_name}</p> 
-        
+       
         </>)}
       </div>
       
@@ -79,6 +82,7 @@ function CatalogItem({ catalog }) {
         >
           Edit Game
         </button>
+        
         {showDialog && (
           <dialog className="nes-dialog" open>
             <form method="dialog" onSubmit={handleConfirm}>
@@ -91,17 +95,46 @@ function CatalogItem({ catalog }) {
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
                 >
+                  
               </input>
-
-              <p>Rating:</p>
-              <input 
+              <br /><br />
+              <p>Rating: {rating}</p>
+              {/* <input 
                 className="nes-container" 
                 type="text"
                 placeholder= "Rating"
                 value={rating}
                 onChange={(event) => setRating(event.target.value)}
                 >
-              </input>
+                  
+              </input> */}
+              <div>
+              <div> 
+        {[...Array(5)].map((star, i) => {
+            const ratingValue = i + 1;
+            return (
+              <label key = {i}> 
+                <input type = "radio" 
+                name="rating" 
+                value={ratingValue} 
+                onClick={() => setRating(ratingValue)}
+                style={{ display: "none" }}
+                />
+                <i class="nes-icon is-large star is-transparent"
+                style={{ color: (ratingValue <= rating) ?   <i class="nes-icon is-large star"/> :<i class="nes-icon is-large star is-transparent"/>}}
+                size={100}
+                onMouseEnter={() => setHover(ratingValue)}
+                onMouseLeave={() => setHover(null)}
+                />
+             </label>
+             
+
+            )
+        })}
+           
+
+    </div>
+              </div>
             
               <menu className="dialog-menu">
                 <button className="nes-btn" onClick={handleCancel}>Cancel</button>
@@ -111,8 +144,10 @@ function CatalogItem({ catalog }) {
           </dialog>
         )}
       </section>
+     
     </div>
   );
+
 }
 
 export default CatalogList;
