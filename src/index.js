@@ -10,6 +10,8 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 import store from './redux/store';
 import "nes.css/css/nes.min.css";
+import "@fontsource/press-start-2p";
+import "nes.css/css/nes.min.css";
 import './index.css'
 
 

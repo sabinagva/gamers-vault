@@ -28,7 +28,7 @@ function CatalogItem({ catalog }) {
   const [rating, setRating] = useState("")
   const dispatch = useDispatch();
   const [clicked, setClicked] = useState(false)
-  const [hover, setHover] = useState(null)
+  //const [hover, setHover] = useState(null)
 
   
 
@@ -120,12 +120,11 @@ function CatalogItem({ catalog }) {
                 onClick={() => setRating(ratingValue)}
                 style={{ display: "none" }}
                 />
-                <i class="nes-icon is-large star is-transparent"
-                style={{ color: (ratingValue <= rating) ?   <i class="nes-icon is-large star"/> :<i class="nes-icon is-large star is-transparent"/>}}
-                size={100}
-                onMouseEnter={() => setHover(ratingValue)}
-                onMouseLeave={() => setHover(null)}
+                <i
+                  className={`nes-icon is-large star ${ratingValue <= rating ? "" : "is-transparent"}`}
+                  style={{ fontSize: 100 }}
                 />
+
              </label>
              
 
