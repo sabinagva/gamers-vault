@@ -13,6 +13,11 @@
 }
 .dialogBox {
     z-index: 1;   
+    display: flex;
+    /* left: 600px;
+    top: -20px; */
+  
+   
 }
 .mapContainer > div {
     flex-grow: 1;
