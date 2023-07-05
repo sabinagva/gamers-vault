@@ -8,11 +8,13 @@ function Nav() {
   const user = useSelector((store) => store.user);
 
   return (
-    <div className="nav">
+    <div className="nav " style={{ padding: '0px 20px 0px 20px', borderBottom: '5px solid black', marginBottom: '60px' }}>
+      <i className='nes-kirby'></i>
       <Link to="/home">
         <h2 className="nav-title">Gamer's Vault</h2>
       </Link>
       <div>
+      
         {/* If no user is logged in, show these links */}
         {!user.id && (
           // If there's no user, show login/registration links

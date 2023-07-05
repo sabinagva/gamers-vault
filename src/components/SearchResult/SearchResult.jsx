@@ -30,15 +30,15 @@ const SearchResult = () => {
               <tbody>
                 {gameListReducer.length !== 0 ? (
                   gameListReducer.map((game, i) => {
-                    const image = game.cover.url;
-                    const finalUrl = image && image.replace('/t_thumb/', '/t_cover_big');
+                    // const image = game.cover.url;
+                    // const finalUrl = image && image.replace('/t_thumb/', '/t_cover_big');
     
                     return (
                       <tr key={i}>
                         <td>
-                          {finalUrl && (
-                            <img src={finalUrl} alt="Cover" />
-                          )}
+                        {game.cover && game.cover.url && (
+                    <img src={game.cover.url} alt="Cover" />
+                  )}
                         </td>
                         <td>{game.name}</td>
                         <td className="button-container">
