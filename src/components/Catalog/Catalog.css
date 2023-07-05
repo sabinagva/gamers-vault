@@ -1,16 +1,83 @@
-.conditionalContainer {
-    width: 200px;
-    text-align: center;
+.mapContainer {
+   
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+    flex-wrap: wrap;
+    position: relative;
+   
+
+
+  
     
 }
-
-.catalogContainer {
-    display: flex;
-    float: left;
+.dialogBox {
+    z-index: 1;   
 }
-input [type = "radio"] {
-    display: none;
-}
-.filled-star {
-    color: yellow; /* Set the desired color for the filled star */
+.mapContainer > div {
+    flex-grow: 1;
+    text-align: center;
+    flex-wrap: wrap;
+    flex: 1 1 0px;
+    margin-right: 80px; /* Add margin between map items */
+    
   }
+
+  .gameContainer {
+    width: 300px;
+    display: flex;
+   
+}
+.editBtn {
+    padding: 20px;
+    position: absolute; /* Add this */
+    left: -45px; /* Also add this for position: absolute to work properly */
+    top: 0x; /* Also add this for position: absolute to work properly */
+   
+  
+}
+
+.gg-pen {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    transform: rotate(-45deg) scale(var(--ggs,1));
+    width: 14px;
+    height: 4px;
+    border-right: 2px solid transparent;
+    box-shadow:
+        0 0 0 2px,
+        inset -2px 0 0;
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+    margin-right: -2px
+}
+.gg-pen::after,
+.gg-pen::before {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    position: absolute
+}
+.gg-pen::before {
+    background: currentColor;
+    border-left: 0;
+    right: -6px;
+    width: 3px;
+    height: 4px;
+    border-radius: 1px;
+    top: 0
+}
+.gg-pen::after {
+   
+    width: 8px;
+    height: 7px;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-right: 7px solid;
+    left: -11px;
+    top: -2px
+}
+
+
+

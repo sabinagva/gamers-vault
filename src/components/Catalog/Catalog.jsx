@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import './Catalog.css'
 
 
 function CatalogList() {
@@ -11,11 +12,17 @@ function CatalogList() {
   }, []);
 
   return (
-    <div>
+    <div className="returnBody">
       <h2>PLAYED GAMES</h2>
+
+    
+    <div className="mapContainer">
       {catalogReducer?.map((catalog) => (
+       
         <CatalogItem key={catalog.id} catalog={catalog} />
+     
       ))}
+    </div>
     </div>
   );
 }
@@ -46,13 +53,18 @@ function CatalogItem({ catalog }) {
     setShowDialog(false);
   };
 
-  const handleEditGame = () => {
+  const handleEditGame = (event) => {
+    event.stopPropagation(); // Stop event propagation
     setShowDialog(true);
   };
+  console.log('im clicked', handleEditGame)
 
   return (
     <div >
-      <div className="conditionalContainer" onClick={() => setClicked(!clicked)}>
+      <div className="gameContainer">
+
+      
+      <div  onClick={() => setClicked(!clicked)}>
         {clicked ? (
           <>
      
@@ -66,25 +78,30 @@ function CatalogItem({ catalog }) {
      
         <img src={catalog.image_url} alt="Game Cover" style={{ width: '300px', height: 'auto' }} />
         <br /><br />
-         <p className="conditionalContainer name">{catalog.played_game_name}</p> 
+         <p>{catalog.played_game_name}</p> 
+   
        
         </>)}
       </div>
+  
       
-      <div>
+    
      
-      </div>
-      <section>
+    <div>
         <button
           type="button"
-          className="nes-btn is-primary"
+          className="nes-btn is-primary editBtn"
           onClick={handleEditGame}
+          
         >
-          Edit Game
+           <div className="gg-pen"></div>
         </button>
-        
+        </div>
+    
+        </div>
+
         {showDialog && (
-          <dialog className="nes-dialog" open>
+          <dialog className="nes-dialog dialogBox" open>
             <form method="dialog" onSubmit={handleConfirm}>
               <p>Description:</p>
            
@@ -142,7 +159,7 @@ function CatalogItem({ catalog }) {
             </form>
           </dialog>
         )}
-      </section>
+      
      
     </div>
   );
