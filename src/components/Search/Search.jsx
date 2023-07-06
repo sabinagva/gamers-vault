@@ -15,20 +15,19 @@ function Search(){
 return (
    
     <div>
-        <p></p>
-        <form className="nes-container with-title cover"  onSubmit={searchGames}>
-        <span  class="titles" >Search for Game</span>
-            <input className="nes-container with-title" type="text" 
-            placeholder="search for games"
-            value={search}
-            onChange={(event)=> setSearch(event.target.value)}  />
-            
-            <input  type="submit"  className="nes-btn is-primary" value="Search" style={{ marginLeft: '30px' }}/>
-            
-           
-        </form>
-        <SearchResult/>       
-    </div>
+    <p></p>
+    <form className="nes-container with-title cover"  onSubmit={searchGames}>
+    <span  style={{backgroundColor: "rgb(255, 255, 147)"}} class="title">Search for Game</span>
+        <input className="nes-container with-title" type="text" 
+        placeholder="search for games"
+        value={search}
+        onChange={(event)=> setSearch(event.target.value)}  />
+        <input type="submit"  class="nes-btn is-primary" value="Search" style={{marginLeft: '50px'}}/>
+        
+       
+    </form>
+    <SearchResult/>       
+</div>
 )
 }
 export default Search
