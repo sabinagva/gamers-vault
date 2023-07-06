@@ -8,8 +8,8 @@ function Nav() {
   const user = useSelector((store) => store.user);
 
   return (
-    <div className="nav " style={{ padding: '0px 20px 0px 20px', borderBottom: '5px solid black', marginBottom: '60px' }}>
-      <i className='nes-kirby'></i>
+    <div className="nav" style={{ padding: '0px 20px 0px 20px', borderBottom: '5px solid black', marginBottom: '60px' }}>
+  <div className="marios"></div>
       <Link to="/home">
         <h2 className="nav-title">Gamer's Vault</h2>
       </Link>
@@ -47,9 +47,7 @@ function Nav() {
           </>
         )}
 
-        <Link className="navLink" to="/about">
-          About
-        </Link>
+      
       </div>
     </div>
   );

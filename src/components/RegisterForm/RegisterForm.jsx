@@ -20,7 +20,9 @@ function RegisterForm() {
   }; // end registerUser
 
   return (
-    <form className="formPanel" onSubmit={registerUser}>
+    <>
+     <br /><br /><br />
+    <form className="formPanel nes-container" onSubmit={registerUser}>
       <h2>Register User</h2>
       {errors.registrationMessage && (
         <h3 className="alert" role="alert">
@@ -52,9 +54,10 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <input className="btn nes-btn" type="submit" name="submit" value="Register" />
       </div>
     </form>
+    </>
   );
 }
 

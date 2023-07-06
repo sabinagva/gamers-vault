@@ -10,24 +10,27 @@ function CatalogList() {
   useEffect(() => {
     dispatch({ type: "GET_CATALOG" });
   }, []);
-
+  const user = useSelector(store => store.user);
   return (
     <div className="returnBody">
-      <h2>PLAYED GAMES</h2>
+      <h2> {user.username}'s PLAYED GAMES</h2>
 
     
     <div className="mapContainer">
-      {catalogReducer?.map((catalog) => (
-       
-        <CatalogItem key={catalog.id} catalog={catalog} />
-     
-      ))}
+      {catalogReducer?.map((catalog) => {
+         const cImage = catalog.image_url;
+         const finalUrl = cImage && cImage.replace('/t_thumb/', '/t_cover_big/');
+      return (
+        
+        <CatalogItem key={catalog.id} catalog={catalog} finalUrl={finalUrl} />
+    
+)})}
     </div>
     </div>
   );
 }
 
-function CatalogItem({ catalog }) {
+function CatalogItem({ catalog, finalUrl }) {
   console.log('catalog is', catalog)
   console.log('catalog.id is', catalog.id)
   const [showDialog, setShowDialog] = useState(false);
@@ -67,16 +70,16 @@ function CatalogItem({ catalog }) {
       <div  onClick={() => setClicked(!clicked)}>
         {clicked ? (
           <>
-     
+     <div className="imgBackside">
            <p><b>description: </b>{catalog.description}</p>
         <p> <b>rating:</b> {catalog.rating}</p>
-       
+        </div>
         
         </> )  :  
         (
         <>
-     
-        <img src={catalog.image_url} alt="Game Cover" style={{ width: '300px', height: 'auto' }} />
+      
+        <img className="gameImg" src={finalUrl} alt="Game Cover" style={{ width: '300px', height: 'auto' }} />
         <br /><br />
          <p>{catalog.played_game_name}</p> 
    

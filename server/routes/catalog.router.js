@@ -9,8 +9,8 @@ const pool = require ('../modules/pool')
 
 router.get('/', (req,res) => {
     console.log('in catalog get');
-    const sqlQuery = `SELECT * FROM "catalog";`
-    pool.query(sqlQuery)
+    const sqlQuery = `SELECT * FROM "catalog" WHERE "user_id" = $1;`
+    pool.query(sqlQuery, [req.user.id])
     .then((result) => {
         console.log('catalog get is a success', result);
         res.send(result.rows)

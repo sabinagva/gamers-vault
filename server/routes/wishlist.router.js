@@ -8,8 +8,8 @@ const pool = require ('../modules/pool')
 //get all the games to wishlist 
 router.get('/', (req,res) => {
     console.log('in wishlist get');
-    const sqlQuery = `SELECT * FROM "wishlist";`
-    pool.query(sqlQuery)
+    const sqlQuery = `SELECT * FROM "wishlist" WHERE user_id = $1;`
+    pool.query(sqlQuery, [req.user.id])
     .then((result) =>{
         console.log('wishlist get is a success', result);
         res.send(result.rows)

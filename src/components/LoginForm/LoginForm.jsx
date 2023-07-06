@@ -25,7 +25,9 @@ function LoginForm() {
   }; // end login
 
   return (
-    <form className="formPanel" onSubmit={login}>
+    <>
+    <br /><br /><br />
+    <form className="formPanel nes-container" onSubmit={login}>
       <h2>Login</h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
@@ -57,9 +59,10 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Log In" />
+        <input className="btn nes-btn"  type="submit" name="submit" value="Log In" />
       </div>
     </form>
+    </>
   );
 }
 

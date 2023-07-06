@@ -14,11 +14,12 @@ const deleteGame = (wish) => {
     dispatch({type: 'DELETE_WISH', payload: wish.id})
 
 }
+const user = useSelector(store => store.user);
 
 
 return (
     <>
-     <h2> Wishlist Table</h2>
+     <h2> {user.username}'s Wishlist Table</h2>
     <div class="nes-table-responsive">
   <table class="nes-table is-bordered is-centered">
     <thead>
@@ -29,7 +30,10 @@ return (
       </tr>
     </thead>
     <tbody>
-    {wishlistReducer.map((wish,i) => (  
+    {wishlistReducer.map((wish,i) => {  
+        //   const wImage = wish.image_url;
+        //   const finalUrl = wImage && wImage.replace('/t_thumb/', '/t_cover_big/');
+        return (
       <tr key={i}>
         <td> <img src={wish.image_url}/></td>
         <td>{wish.game_name}</td>
@@ -42,7 +46,7 @@ return (
         </td>
      
       </tr>
-   ))}
+)})}
     </tbody>
   </table>
 </div>
