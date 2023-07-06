@@ -79,7 +79,7 @@ function CatalogItem({ catalog, finalUrl }) {
         (
         <>
       
-        <img className="gameImg" src={finalUrl} alt="Game Cover" style={{ width: '300px', height: 'auto' }} />
+        <img className="gameImg nes-container" src={finalUrl} alt="Game Cover" style={{ width: '300px', height: 'auto' }} />
         <br /><br />
          <p>{catalog.played_game_name}</p> 
    
