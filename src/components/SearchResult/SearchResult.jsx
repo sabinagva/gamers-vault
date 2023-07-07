@@ -1,15 +1,18 @@
 const { useSelector, useDispatch } = require("react-redux")
+import { useState } from 'react';
 import './SearchResult.css'
 
 const SearchResult = () => {
     const gameListReducer = useSelector(store => store.gameListReducer)
     const dispatch =useDispatch();
+    //const [clickedGameIds, setClickedGameIds] = useState([]);
 
     const addToWishlist = (game) =>{
       dispatch({type: 'ADD_WISHLIST', payload: game})
     }
     const addToCatalog = (game) => {
       dispatch({type:'ADD_CATALOG', payload: game})
+      //setClickedGameIds((prevClickedGameIds) => [...prevClickedGameIds, game.id]);
     }
    
 
@@ -55,6 +58,7 @@ const SearchResult = () => {
                             onClick={() => addToCatalog(game)}
                             type="button"
                             className="nes-btn is-primary"
+                           // disabled={clickedGameIds.includes(game.id)}
                           >
                             Add to Catalog
                           </button>

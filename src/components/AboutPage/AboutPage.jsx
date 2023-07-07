@@ -9,8 +9,9 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p>This about page is for anyone to read!</p>
+        <p> Gamer's Vault is a space where gamers can store the games they played in the past and attach their memories and ratings along with it. Gamers can also share and track their game wishlist no matter what platform the game is from. </p>
       </div>
+     
     </div>
   );
 }

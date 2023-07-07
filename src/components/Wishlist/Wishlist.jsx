@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import './Wishlist.css'
 
 
 function WishlistList() {
@@ -19,7 +20,7 @@ const user = useSelector(store => store.user);
 
 return (
     <>
-     <h2> {user.username}'s Wishlist Table</h2>
+     <h2> <span className="user">{user.username}'s </span>Wishlist Table</h2>
     <div class="nes-table-responsive">
   <table class="nes-table is-bordered is-centered">
     <thead>

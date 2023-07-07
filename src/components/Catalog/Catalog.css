@@ -1,40 +1,46 @@
 
 .mapContainer {
    
-    display: flex;
-    justify-content: space-between;
-    margin: 50px;
-    flex-wrap: wrap;
-    position: relative;
+  display: flex;
+  /* justify-content: space-evenly; */
+  margin: 50px;
+  flex-wrap: wrap;
+ 
+  /*  position: relative; */
+
    
 
 
   
     
 }
+
 .dialogBox {
     z-index: 1;   
     display: flex;
+    flex-wrap: wrap;
     /* left: 600px;
     top: -20px; */
   
    
 }
-.mapContainer > div {
-    flex-grow: 1;
-    text-align: center;
-    flex-wrap: wrap;
-    flex: 1 1 0px;
-    margin-right: 80px; /* Add margin between map items */
-    
-  }
+.description {
+  flex-wrap: wrap;
+}
+.gameImg {
+  border: 6px solid rgb(0, 0, 0);
+  border-radius: 5px;
+}
+
 
   .gameContainer {
     
     width: 300px;
     display: flex;
- 
- 
+  }
+
+  .user {
+    color: #ff0e0e;
   }
   .imgBackside {
     background-color: rgb(255, 255, 255);

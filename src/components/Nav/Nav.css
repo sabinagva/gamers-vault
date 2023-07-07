@@ -56,8 +56,19 @@
 }
 
 .navLink:hover {
-  background-color: #6e7373;
+  animation: rainbowText 2s infinite;
 }
+
+@keyframes rainbowText {
+  0% { color: red; }
+  16.7% { color: #ffa500 }
+  33.3% { color: #4545bb }
+  50% { color: #a52a2a, }
+  66.7% { color: rgb(255, 0, 0); }
+  83.3% { color: rgb(208, 211, 0); }
+  100% { color: rgb(248, 101, 22); }
+}
+
 
 .marios {
   

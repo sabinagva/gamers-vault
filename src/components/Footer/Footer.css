@@ -1,5 +1,9 @@
 footer {
-  margin-top: 80px;
+  /* margin-top: 530px; */
   padding: 20px;
   text-align: center;
+}
+
+.heart {
+  top: 6px;
 }

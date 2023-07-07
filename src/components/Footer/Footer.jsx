@@ -14,7 +14,7 @@ function Footer() {
           About
         </Link>
 </div>
-    &copy; Sabina Hira Gahramanova
+    &copy; Gamer's Vault  <i class="nes-icon heart heart"></i>
 
 
   </footer>;

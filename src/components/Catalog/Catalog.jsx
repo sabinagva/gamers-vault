@@ -13,7 +13,7 @@ function CatalogList() {
   const user = useSelector(store => store.user);
   return (
     <div className="returnBody">
-      <h2> {user.username}'s PLAYED GAMES</h2>
+      <h2> <span className="user">{user.username}'s </span> PLAYED GAMES</h2>
 
     
     <div className="mapContainer">
@@ -71,7 +71,7 @@ function CatalogItem({ catalog, finalUrl }) {
         {clicked ? (
           <>
      <div className="imgBackside">
-           <p><b>description: </b>{catalog.description}</p>
+           <p className="description"><b>description:</b > {catalog.description}</p>
         <p> <b>rating:</b> {catalog.rating}</p>
         </div>
         
@@ -79,7 +79,7 @@ function CatalogItem({ catalog, finalUrl }) {
         (
         <>
       
-        <img className="gameImg nes-container" src={finalUrl} alt="Game Cover" style={{ width: '300px', height: 'auto' }} />
+        <img className="gameImg  with title" src={finalUrl} alt="Game Cover" style={{ width: '300px', height: '300px' }} />
         <br /><br />
          <p>{catalog.played_game_name}</p> 
    
