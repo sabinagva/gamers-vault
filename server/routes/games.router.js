@@ -3,7 +3,8 @@ const router = express.Router();
 const axios = require("axios");
 require("dotenv").config();
 
-//GET for search view from api
+//GET games from api for search view
+//api developer tool is outdated needed postman for accurate axios.get
 router.get("/:id", async (req, res) => {
   const gameName = req.params.id;
   console.log("gamename is", gameName);

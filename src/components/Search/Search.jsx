@@ -9,6 +9,7 @@ function Search() {
 
   const searchGames = (event) => {
     event.preventDefault();
+      // Dispatch action to search for games
     dispatch({ type: "GET_GAMES", payload: search });
     setSearch("");
   };
@@ -33,6 +34,7 @@ function Search() {
           style={{ marginLeft: "50px" }}
         />
       </form>
+      {/* Search Result file is where the games are rendering  */}
       <SearchResult />
     </div>
   );

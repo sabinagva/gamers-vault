@@ -7,12 +7,15 @@ function WishlistList() {
   const wishlistReducer = useSelector((store) => store.wishlistReducer);
 
   useEffect(() => {
+    // Fetch wishlist data when the component mounts
     dispatch({ type: "GET_WISHLIST" });
   }, []);
 
   const deleteGame = (wish) => {
+    // Dispatch action to delete a game from the wishlist
     dispatch({ type: "DELETE_WISH", payload: wish.id });
   };
+
   const user = useSelector((store) => store.user);
 
   return (
@@ -32,13 +35,12 @@ function WishlistList() {
           </thead>
           <tbody>
             {wishlistReducer.map((wish, i) => {
-              //   const wImage = wish.image_url;
-              //   const finalUrl = wImage && wImage.replace('/t_thumb/', '/t_cover_big/');
+              // Render a row for each wishlist item
               return (
                 <tr key={i}>
                   <td>
                     {" "}
-                    <img src={wish.image_url} />
+                    <img src={wish.image_url} alt="Game Cover" />
                   </td>
                   <td>{wish.game_name}</td>
                   <td>
@@ -59,4 +61,5 @@ function WishlistList() {
     </>
   );
 }
+
 export default WishlistList;

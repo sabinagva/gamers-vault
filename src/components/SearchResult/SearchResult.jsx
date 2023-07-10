@@ -2,16 +2,18 @@ const { useSelector, useDispatch } = require("react-redux");
 import "./SearchResult.css";
 
 const SearchResult = () => {
+  // Access gameListReducer state from Redux store
   const gameListReducer = useSelector((store) => store.gameListReducer);
   const dispatch = useDispatch();
-  //const [clickedGameIds, setClickedGameIds] = useState([]);
 
+  // Dispatch action to add a game to the wishlist
   const addToWishlist = (game) => {
     dispatch({ type: "ADD_WISHLIST", payload: game });
   };
+
+  // Dispatch action to add a game to the catalog
   const addToCatalog = (game) => {
     dispatch({ type: "ADD_CATALOG", payload: game });
-    //setClickedGameIds((prevClickedGameIds) => [...prevClickedGameIds, game.id]);
   };
 
   return (
@@ -32,6 +34,7 @@ const SearchResult = () => {
             </thead>
             <tbody>
               {gameListReducer.length !== 0 ? (
+                // Render game results if there are games in the list
                 gameListReducer.map((game, i) => {
                   const image = game.cover?.url;
                   const finalUrl =
@@ -60,7 +63,6 @@ const SearchResult = () => {
                           onClick={() => addToCatalog(game)}
                           type="button"
                           className="nes-btn is-primary"
-                          // disabled={clickedGameIds.includes(game.id)}
                         >
                           Add to Catalog
                         </button>
@@ -69,6 +71,7 @@ const SearchResult = () => {
                   );
                 })
               ) : (
+                // Render "No games" message if there are no games in the list
                 <tr>
                   <td colSpan="4">No games</td>
                 </tr>
@@ -80,4 +83,5 @@ const SearchResult = () => {
     </>
   );
 };
+
 export default SearchResult;

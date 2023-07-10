@@ -4,9 +4,8 @@ const axios = require("axios");
 require("dotenv").config();
 const pool = require("../modules/pool");
 
-//get all the played games from database
-//to catalog page
-
+// Get all the played games from the database
+// and send them to the client side
 router.get("/", (req, res) => {
   console.log("in catalog get");
   const sqlQuery = `SELECT * FROM "catalog" WHERE "user_id" = $1;`;
@@ -21,9 +20,9 @@ router.get("/", (req, res) => {
     });
 });
 
-//Posting (adding) to catalog table in data base
-//eq.body grabs the whole object of the data
-//req.params grabs single data from the url
+// ADD a new played game to the catalog table in the database
+// //req.body grabs the whole object of the data
+// //req.params grabs single data from the url
 
 router.post("/", (req, res) => {
   const newPlayedGame = req.body;
@@ -47,17 +46,14 @@ router.post("/", (req, res) => {
     });
 });
 
-//PUT
-//updating
-//req.body is used when we are passing it as a data
-//req.params is when we are passing data in the url
+// UPDATE the description and rating of a played game in the catalog table
 router.put("/:id/:description/:user_rating", (req, res) => {
   const newEdit = req.params;
   console.log("req.body is", req.body.description);
   console.log("req.params is", req.params);
   console.log("description is", req.params.description);
   console.log("rating is", req.params.user_rating);
-  console.log("id  is", req.params.id);
+  console.log("id is", req.params.id);
 
   const sqlQuery = `UPDATE "catalog" SET "description" = $1, "rating" = $2 WHERE "id" = $3;`;
   pool
@@ -70,21 +66,5 @@ router.put("/:id/:description/:user_rating", (req, res) => {
       console.log("error in updating rating and description", error);
     });
 });
-
-// //post
-// router.post('/', (req,res) => {
-//     const newEdit = req.body;
-//     console.log('new edit is', newEdit);
-//     const sqlQuery = `INSERT INTO "catalog" ("description", "rating")
-//                       VALUES ($1,$2);`;
-//     pool.query(sqlQuery,[newEdit.description, newEdit.rating])
-//     .then(result => {
-//         res.sendStatus(201);
-//     })
-//     .catch(error => {
-//         console.log('error posting user input to database', error)
-//     })
-
-// })
 
 module.exports = router;

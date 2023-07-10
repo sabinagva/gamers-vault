@@ -4,7 +4,7 @@ const axios = require("axios");
 require("dotenv").config();
 const pool = require("../modules/pool");
 
-//get all the games to wishlist
+//GET all the games from wishlist sql table to client side
 router.get("/", (req, res) => {
   console.log("in wishlist get");
   const sqlQuery = `SELECT * FROM "wishlist" WHERE user_id = $1;`;
@@ -37,7 +37,7 @@ router.post("/", (req, res) => {
     });
 });
 
-//DELETE
+//DELETE games from the wishlist table
 //req.params.id is id to delete
 router.delete("/:id", (req, res) => {
   const sqlQuery = `DELETE FROM "wishlist" where "id" = $1 `;

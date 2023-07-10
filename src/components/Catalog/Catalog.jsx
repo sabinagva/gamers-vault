@@ -7,16 +7,20 @@ function CatalogList() {
   const catalogReducer = useSelector((store) => store.catalogReducer);
 
   useEffect(() => {
+    // Fetch catalog data when the component mounts on page load
     dispatch({ type: "GET_CATALOG" });
   }, []);
+
   const user = useSelector((store) => store.user);
+
   return (
     <div className="returnBody">
+      {/* Allows name change based on user login */}
       <h2>
         {" "}
         <span className="user">{user.username}'s </span> PLAYED GAMES
       </h2>
-
+      {/* going through catalog of games to render  */}
       <div className="mapContainer">
         {catalogReducer?.map((catalog) => {
           const cImage = catalog.image_url;
@@ -36,16 +40,14 @@ function CatalogList() {
 }
 
 function CatalogItem({ catalog, finalUrl }) {
-  console.log("catalog is", catalog);
-  console.log("catalog.id is", catalog.id);
   const [showDialog, setShowDialog] = useState(false);
   const [description, setDescription] = useState("");
   const [rating, setRating] = useState("");
-  const dispatch = useDispatch();
   const [clicked, setClicked] = useState(false);
-  //const [hover, setHover] = useState(null)
+  const dispatch = useDispatch();
 
   const handleConfirm = (event) => {
+    // Handle confirmation of edits
     dispatch({
       type: "UPDATE_CATALOG",
       payload: {
@@ -54,23 +56,29 @@ function CatalogItem({ catalog, finalUrl }) {
         id: catalog.id,
       },
     });
+
     event.preventDefault();
+    //emties out the inputs after submit
     setDescription("");
     setRating("");
+    //gets rid of the dialogue box after confirm
     setShowDialog(false);
   };
+
   const handleCancel = () => {
+    // gets rid of the dialogue box after cancel
     setShowDialog(false);
   };
 
   const handleEditGame = (event) => {
+    //brings the dialogue box on click
     event.stopPropagation(); // Stop event propagation
     setShowDialog(true);
   };
-  console.log("im clicked", handleEditGame);
 
   return (
     <div>
+      {/* conditionally renders back side of the game cards on click */}
       <div className="gameContainer">
         <div onClick={() => setClicked(!clicked)}>
           {clicked ? (
@@ -87,8 +95,9 @@ function CatalogItem({ catalog, finalUrl }) {
             </>
           ) : (
             <>
+              {/* renders the game name and card image  */}
               <img
-                className="gameImg  with title"
+                className="gameImg with title"
                 src={finalUrl}
                 alt="Game Cover"
                 style={{ width: "300px", height: "300px" }}
@@ -101,6 +110,7 @@ function CatalogItem({ catalog, finalUrl }) {
         </div>
 
         <div>
+          {/* edit button to add description and rating */}
           <button
             type="button"
             className="nes-btn is-primary editBtn"
@@ -128,6 +138,7 @@ function CatalogItem({ catalog, finalUrl }) {
             <p>Rating: {rating}</p>
             <div>
               <div>
+                {/* star rating functionality  */}
                 {[...Array(5)].map((star, i) => {
                   const ratingValue = i + 1;
                   return (
