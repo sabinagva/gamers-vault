@@ -1,4 +1,5 @@
 import React from 'react';
+import './AboutPage.css'
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -21,6 +22,11 @@ function AboutPage() {
         <ul>IGDB Api</ul>
         <ul>Javascript</ul>
         <ul>Express.js</ul>
+        <div className="qr" >
+          
+        <img src="https://i.ibb.co/vXrCTkp/qrcode-67974077.jpg" />
+
+        </div>
        
 
       </div>
