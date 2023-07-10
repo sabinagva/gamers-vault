@@ -1,5 +1,5 @@
-import React from 'react';
-import './AboutPage.css'
+import React from "react";
+import "./AboutPage.css";
 
 // This is one of our simplest components
 // It doesn't have local state,
@@ -10,8 +10,16 @@ function AboutPage() {
   return (
     <div className="container">
       <div>
-        <p> Gamer's Vault is a space where gamers can store the games they played in the past and attach their memories and ratings along with it. Gamers can also share and track their game wishlist no matter what platform the game is from. </p>
-        <p><b>Technologies used:</b></p>
+        <p>
+          {" "}
+          Gamer's Vault is a space where gamers can store the games they played
+          in the past and attach their memories and ratings along with it.
+          Gamers can also share and track their game wishlist no matter what
+          platform the game is from.{" "}
+        </p>
+        <p>
+          <b>Technologies used:</b>
+        </p>
         <ul>CSS</ul>
         <ul>SQL</ul>
         <ul>Html</ul>
@@ -22,15 +30,10 @@ function AboutPage() {
         <ul>IGDB Api</ul>
         <ul>Javascript</ul>
         <ul>Express.js</ul>
-        <div className="qr" >
-          
-        <img src="https://i.ibb.co/vXrCTkp/qrcode-67974077.jpg" />
-
+        <div className="qr">
+          <img src="https://i.ibb.co/vXrCTkp/qrcode-67974077.jpg" />
         </div>
-       
-
       </div>
-     
     </div>
   );
 }

@@ -1,28 +1,18 @@
-
 .mapContainer {
-   
   display: flex;
   /* justify-content: space-evenly; */
   margin: 50px;
   flex-wrap: wrap;
- 
+
   /*  position: relative; */
-
-   
-
-
-  
-    
 }
 
 .dialogBox {
-    z-index: 1;   
-    display: flex;
-    flex-wrap: wrap;
-    /* left: 600px;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  /* left: 600px;
     top: -20px; */
-  
-   
 }
 .description {
   flex-wrap: wrap;
@@ -32,90 +22,80 @@
   border-radius: 5px;
 }
 
+.gameContainer {
+  width: 300px;
+  display: flex;
+}
 
-  .gameContainer {
-    
-    width: 300px;
-    display: flex;
-  }
-
-  .user {
-    color: #ff0e0e;
-  }
-  .imgBackside {
-    background-color: rgb(255, 255, 255);
-    width: 260px;
-    height: 342px;
-  }
-  /* .gameImg {
+.user {
+  color: #ff0e0e;
+}
+.imgBackside {
+  background-color: rgb(255, 255, 255);
+  width: 260px;
+  height: 342px;
+}
+/* .gameImg {
     border: 10px solid pink;
     border-radius: 10px;
     animation: colorChange 3s infinite alternate;
     padding-bottom: 10px;
     
   } */
-  
-  @keyframes colorChange {
-    0% {
-      border-color: pink;
-    }
-    50% {
-      border-color: rgb(105, 11, 36);
-    }
-    100% {
-      border-color: pink;
-    }
+
+@keyframes colorChange {
+  0% {
+    border-color: pink;
   }
+  50% {
+    border-color: rgb(105, 11, 36);
+  }
+  100% {
+    border-color: pink;
+  }
+}
 .editBtn {
-    padding: 20px;
-    position: absolute; /* Add this */
-    left: -45px; /* Also add this for position: absolute to work properly */
-    top: 0x; /* Also add this for position: absolute to work properly */
-   
-  
+  padding: 20px;
+  position: absolute; /* Add this */
+  left: -45px; /* Also add this for position: absolute to work properly */
+  top: 0x; /* Also add this for position: absolute to work properly */
 }
 
 .gg-pen {
-    box-sizing: border-box;
-    position: relative;
-    display: block;
-    transform: rotate(-45deg) scale(var(--ggs,1));
-    width: 14px;
-    height: 4px;
-    border-right: 2px solid transparent;
-    box-shadow:
-        0 0 0 2px,
-        inset -2px 0 0;
-    border-top-right-radius: 1px;
-    border-bottom-right-radius: 1px;
-    margin-right: -2px
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: rotate(-45deg) scale(var(--ggs, 1));
+  width: 14px;
+  height: 4px;
+  border-right: 2px solid transparent;
+  box-shadow: 0 0 0 2px, inset -2px 0 0;
+  border-top-right-radius: 1px;
+  border-bottom-right-radius: 1px;
+  margin-right: -2px;
 }
 .gg-pen::after,
 .gg-pen::before {
-    content: "";
-    display: block;
-    box-sizing: border-box;
-    position: absolute
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
 }
 .gg-pen::before {
-    background: currentColor;
-    border-left: 0;
-    right: -6px;
-    width: 3px;
-    height: 4px;
-    border-radius: 1px;
-    top: 0
+  background: currentColor;
+  border-left: 0;
+  right: -6px;
+  width: 3px;
+  height: 4px;
+  border-radius: 1px;
+  top: 0;
 }
 .gg-pen::after {
-   
-    width: 8px;
-    height: 7px;
-    border-top: 4px solid transparent;
-    border-bottom: 4px solid transparent;
-    border-right: 7px solid;
-    left: -11px;
-    top: -2px
+  width: 8px;
+  height: 7px;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-right: 7px solid;
+  left: -11px;
+  top: -2px;
 }
-
-
-

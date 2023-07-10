@@ -1,40 +1,32 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const axios = require('axios');
-require('dotenv').config();
-
-
+const axios = require("axios");
+require("dotenv").config();
 
 //GET for search view from api
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   const gameName = req.params.id;
-  console.log('gamename is', gameName)
-  
+  console.log("gamename is", gameName);
+
   let data = `fields *, cover.url ;\nsearch "${gameName}";\nlimit 10;`;
 
   let config = {
-    method: 'post',
+    method: "post",
     maxBodyLength: Infinity,
-    url: 'https://api.igdb.com/v4/games',
-    headers: { 
-      'Client-ID': process.env.CLIENT_ID, 
-      'Authorization': process.env.AUTHORIZATION, 
-      'Accept': 'application/json', 
-      'Content-Type': 'text/plain', 
-      'Cookie': '__cf_bm=DlxOwur5Inz60Em5pSZ8qM6mIJ8zo8cGcLsP4MmkyzE-1687898318-0-AWpMyxT06Kj2MklbNv93eCb1egi0Vt85eA4EYmWNjeru8GTlGBDh6nypsqF4rylHca08iuupp6sgSEqyja6HiDA='
+    url: "https://api.igdb.com/v4/games",
+    headers: {
+      "Client-ID": process.env.CLIENT_ID,
+      Authorization: process.env.AUTHORIZATION,
+      Accept: "application/json",
+      "Content-Type": "text/plain",
+      Cookie:
+        "__cf_bm=DlxOwur5Inz60Em5pSZ8qM6mIJ8zo8cGcLsP4MmkyzE-1687898318-0-AWpMyxT06Kj2MklbNv93eCb1egi0Vt85eA4EYmWNjeru8GTlGBDh6nypsqF4rylHca08iuupp6sgSEqyja6HiDA=",
     },
-    data : data
+    data: data,
   };
-  const gameResponse = await axios(
-    config
+  const gameResponse = await axios(config);
+  console.log("gameResponse is", gameResponse);
+  res.send(gameResponse.data);
+});
 
-  )
-  console.log('gameResponse is', gameResponse)
-  res.send(gameResponse.data)
-})
-
-
-
- module.exports = router;
-
-
+module.exports = router;
