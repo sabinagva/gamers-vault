@@ -34,6 +34,7 @@ router.post("/", (req, res) => {
     })
     .catch((error) => {
       console.log("error posting to database", error);
+      res.sendStatus(500)
     });
 });
 
