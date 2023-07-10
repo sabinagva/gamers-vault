@@ -1,66 +1,32 @@
-Dancing Script Variable Font
-============================
+Gamer's Vault
+The Gamer's Vault App is a web application built with React, Redux, JavaScript, CSS, NES.css, HTML, Node.js, Express.js and SQL. 
+It allows users to manage their games by adding games from multiple platforms to their wishlist or their played game catalog.
+Users can also edit game descriptions and ratings in their catalog.
 
-This download contains Dancing Script as both a variable font and static fonts.
+Features
+User authentication: Users can sign up, log in, and log out to access their personalized game catalog.
+Game Search: Users can search and add games from multiple platforms to their wishlist or catalog.
+- Wishlist Management: Users can view, add and remove games in their wishlist.
+- Catalog Management: Users can view, add and edit game description or rating in their played game catalog.
+-Full CRUD functionality: GET,POST,PUT,DELETE
 
-Dancing Script is a variable font with this axis:
-  wght
+Technologies Used
+-React: A JavaScript library for building user interfaces. It provides the frontend framework for the app.
+- Redux: A predictable state container for JavaScript apps. It manages the app's state and enables centralized data management.
+- Redux Saga: A library for managing side effects in Redux applications. It handles asynchronous actions, such as API calls.
+- Node.js: A JavaScript runtime built on Chrome's V8 JavaScript engine. It provides the backend environment for the app.
+- Express.js: A minimal and flexible Node.js web application framework. It handles routing and server-side logic.
+- JavaScript: The programming language used for both frontend and backend development.
+- CSS: The styling language used to design the app's user interface.
+- NES.css: A CSS library that provides retro-inspired styles for web applications. It gives the app a nostalgic look and feel.
+- HTML: The markup language used to structure the app's content.
+- SQL: The language used for managing the app's database, allowing for efficient storage and retrieval of game information.
 
-This means all the styles are contained in a single file:
-  Dancing_Script/DancingScript-VariableFont_wght.ttf
+To run the Game Catalog App locally on your machine, follow these steps:
 
-If your app fully supports variable fonts, you can now pick intermediate styles
-that aren’t available as static fonts. Not all apps support variable fonts, and
-in those cases you can use the static font files for Dancing Script:
-  Dancing_Script/static/DancingScript-Regular.ttf
-  Dancing_Script/static/DancingScript-Medium.ttf
-  Dancing_Script/static/DancingScript-SemiBold.ttf
-  Dancing_Script/static/DancingScript-Bold.ttf
-
-Get started
------------
-
-1. Install the font files you want to use
-
-2. Use your app's font picker to view the font family and all the
-available styles
-
-Learn more about variable fonts
--------------------------------
-
-  https://developers.google.com/web/fundamentals/design-and-ux/typography/variable-fonts
-  https://variablefonts.typenetwork.com
-  https://medium.com/variable-fonts
-
-In desktop apps
-
-  https://theblog.adobe.com/can-variable-fonts-illustrator-cc
-  https://helpx.adobe.com/nz/photoshop/using/fonts.html#variable_fonts
-
-Online
-
-  https://developers.google.com/fonts/docs/getting_started
-  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide
-  https://developer.microsoft.com/en-us/microsoft-edge/testdrive/demos/variable-fonts
-
-Installing fonts
-
-  MacOS: https://support.apple.com/en-us/HT201749
-  Linux: https://www.google.com/search?q=how+to+install+a+font+on+gnu%2Blinux
-  Windows: https://support.microsoft.com/en-us/help/314960/how-to-install-or-remove-a-font-in-windows
-
-Android Apps
-
-  https://developers.google.com/fonts/docs/android
-  https://developer.android.com/guide/topics/ui/look-and-feel/downloadable-fonts
-
-License
--------
-Please read the full license text (OFL.txt) to understand the permissions,
-restrictions and requirements for usage, redistribution, and modification.
-
-You can use them in your products & projects – print or digital,
-commercial or otherwise.
-
-This isn't legal advice, please consider consulting a lawyer and see the full
-license for all details.
+1. Clone the repository: `git clone SSH link`
+2. Install dependencies: `npm install`
+3. Set up the database: Follow the instructions in the `database.sql` file to create the necessary tables and configure the database connection.
+4. Start the backend server: `npm run server`
+5. Start the frontend development server: `npm run client`
+6. Open the app in your browser: `http://localhost:3000`
