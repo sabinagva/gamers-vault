@@ -25,6 +25,7 @@ const SearchResult = () => {
               <thead>
                 <tr>
                   <th>Picture</th>
+                  <th>Summary</th>
                   <th>Game</th>
                   <th>Add to Wishlist</th>
                   <th>Add to Catalog</th>
@@ -43,6 +44,7 @@ const SearchResult = () => {
                     <img src={finalUrl} alt="Cover" />
                   )}
                         </td>
+                        <td>{game.summary}</td>
                         <td>{game.name}</td>
                         <td className="button-container">
                           <button
