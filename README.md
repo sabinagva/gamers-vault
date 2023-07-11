@@ -25,7 +25,7 @@ Technologies Used
 
 To run the Game Catalog App locally on your machine, follow these steps:
 
-1. Clone the repository: `git clone SSH link`
+1. Clone the repository: `git clone <repository-url>`
 2. Install dependencies: `npm install`
 3. Set up the database: Follow the instructions in the `database.sql` file to create the necessary tables and configure the database connection.
 4. Start the backend server: `npm run server`
